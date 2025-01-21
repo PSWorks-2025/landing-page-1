@@ -1,7 +1,7 @@
 import fetchData from '../loadJsonFile.js';
 import { CreateNews } from '../setupContent.js';
 
-fetchData(['news'], ['news.json']);
+fetchData(['news'], ['../news.json']);
 
 document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('DataLoaded', (eventInfo) => {
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Constants
 
-    const news = data['news'] || data['news.json'];
+    const news = data['news'] || data['../news.json'];
     const newsList = document.getElementById('news-list');
 
     // Functions

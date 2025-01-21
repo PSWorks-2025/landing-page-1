@@ -1,7 +1,7 @@
-import fetchData from '/loadJsonFile.js';
-import { CreateBio } from '/setupContent.js';
+import fetchData from '../loadJsonFile.js';
+import { CreateBio } from '../setupContent.js';
 
-fetchData(['bio'], ['/bio.json']);
+fetchData(['bio'], ['../bio.json']);
 
 document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('DataLoaded', (eventInfo) => {
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Constants
 
-    const sections = data['bio'] || data['/bio.json'];
+    const sections = data['bio'] || data['../bio.json'];
     const bioDisplay = document.getElementById('bio-display');
 
     // Functions
