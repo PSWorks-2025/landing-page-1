@@ -1,7 +1,7 @@
-import fetchData from '/loadJsonFile.js';
-import { CreateArts } from '/setupContent.js';
+import fetchData from '../loadJsonFile.js';
+import { CreateArts } from '../setupContent.js';
 
-fetchData(['arts'], ['/arts.json']);
+fetchData(['arts'], ['../arts.json']);
 
 document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('DataLoaded', (eventInfo) => {
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = eventInfo.detail;
 
     // Constants
-    const arts = data['arts'] || data['/arts.json'];
+    const arts = data['arts'] || data['../arts.json'];
     const artsGrid = document.getElementById('arts-grid');
 
     // Functions

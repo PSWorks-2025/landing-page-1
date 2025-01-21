@@ -1,8 +1,8 @@
-import fetchData from 'loadJsonFile.js';
-import { UpdateSize, UpdatePosition, AddEventListeners, Animate, RedirectAnimation, SetupAnimation } from 'animation.js';
-import { CreateGallery } from 'setupContent.js';
+import fetchData from './loadJsonFile.js';
+import { UpdateSize, UpdatePosition, AddEventListeners, Animate, RedirectAnimation, SetupAnimation } from './animation.js';
+import { CreateGallery } from './setupContent.js';
 
-fetchData(['gallery'], ['gallery.json']);
+fetchData(['gallery'], ['./gallery.json']);
 
 document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('DataLoaded', (eventInfo) => {
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Constants
 
-    const gallery = data['gallery'] || data['gallery.json'];
+    const gallery = data['gallery'] || data['./gallery.json'];
     const grid = document.getElementById('grid');
 
     // Functions
