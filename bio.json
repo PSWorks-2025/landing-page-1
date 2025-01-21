@@ -1,0 +1,101 @@
+{
+  "section_0": {
+    "height": "400px",
+    "overlay": false,
+    "parts": {
+      "part_0": {
+        "type": "image",
+        "imageUrl": "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+        "scrollEffectType": "scroll-from-left",
+        "startEffect": 200,
+        "rangeEffect": 400,
+        "width": "50%"
+      },
+      "part_1": {
+        "type": "text",
+        "text": "bruh lmao lmao",
+        "align": "left",
+        "color": "black",
+        "scrollEffectType": "scroll-from-right",
+        "startEffect": 200,
+        "rangeEffect": 400,
+        "width": "50%"
+      }
+    }
+  },
+  "section_1": {
+    "height": "400px",
+    "overlay": false,
+    "parts": {
+      "part_0": {
+        "type": "text",
+        "text": "bruh lmao lmao",
+        "align": "left",
+        "color": "black",
+        "scrollEffectType": "scroll-from-bottom",
+        "startEffect": 600,
+        "rangeEffect": 400,
+        "width": "50%"
+      },
+      "part_1": {
+        "type": "image",
+        "imageUrl": "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+        "scrollEffectType": "scroll-from-top",
+        "startEffect": 600,
+        "rangeEffect": 400,
+        "width": "50%"
+      }
+    }
+  },
+  "section_2": {
+    "height": "400px",
+    "overlay": false,
+    "parts": {
+      "part_0": {
+        "type": "image",
+        "imageUrl": "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+        "scrollEffectType": "pop-from-center",
+        "startEffect": 1000,
+        "rangeEffect": 400,
+        "width": "100%"
+      }
+    }
+  },
+  "section_4": {
+    "height": "400px",
+    "overlay": true,
+    "parts": {
+      "part_0": {
+        "type": "image",
+        "imageUrl": "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+        "scrollEffectType": "slowly-move-up",
+        "movingRange": "40%",
+        "startEffect": 1400,
+        "rangeEffect": 400,
+        "width": "100%"
+      },
+      "part_1": {
+        "type": "text",
+        "text": "ken gay",
+        "align": "center",
+        "color": "white",
+        "scrollEffectType": "",
+        "width": "100%"
+      }
+    }
+  },
+  "section_5": {
+    "height": "400px",
+    "parts": {
+      "part_0": {
+        "type": "image",
+        "imageUrl": "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp",
+        "scrollEffectType": "slowly-zooming",
+        "zoomingRange": "20%",
+        "startEffect": 1800,
+        "rangeEffect": 400,
+        "width": "100%"
+      }
+    }
+  }
+}
