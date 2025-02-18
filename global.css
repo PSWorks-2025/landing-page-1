@@ -124,6 +124,7 @@ body {
 
 .container {
   margin-left: 0;
+  margin-bottom: 30px;
 }
 
 .grid button {
@@ -307,7 +308,7 @@ body {
 
 .news-list .news-item {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url(https://www.freewebheaders.com/gc-abstract-1600x400/colorful-polygon-shapes-abstract-geometric-vector-banner_gc-banner-1600x400.png);
+    url(https://media.la34.com.vn/upload/image/201907/medium/77702_020719_sontung.jpg);
   background-position: center top;
   background-size: 0;
   padding: 17.5px;
@@ -581,7 +582,7 @@ body {
 .bio-background {
   width: 100%;
   height: 90%;
-  background-image: url(https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp);
+  background-image: url(https://cdn-www.vinid.net/613774c6-lieu-nhac-cua-son-tung-m-tp-con-gay-suc-hut-voi-khan-gia.jpg);
   background-size: cover;
   background-position: center top;
   position: fixed;

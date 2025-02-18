@@ -1,24 +1,35 @@
 export function CreateGallery(grid, gallery) {
   Object.entries(gallery)
-  .map((entry) => [entry[0].slice(5), entry[1]])
-  .sort((a, b) => a[0] - b[0])
-  .forEach(([key, item]) => {
-    const child = document.createElement("div");
-    child.style.gridColumn = `span ${item.column}`;
-    child.style.gridRow = `span ${item.row}`;
-    child.innerHTML = `
-      <button data-url="${item.url}" style="background-image: url(${item.imageUrl});">
+    .map((entry) => [entry[0].slice(5), entry[1]])
+    .sort((a, b) => a[0] - b[0])
+    .forEach(([key, item]) => {
+      const child = document.createElement("div");
+      child.style.gridColumn = `span ${item.column}`;
+      child.style.gridRow = `span ${item.row}`;
+
+      const button = document.createElement("button");
+      button.style.backgroundImage = `url(${item.imageUrl})`;
+      button.classList.add('gallery-button'); 
+
+      button.addEventListener('click', () => {
+        const itemData = encodeURIComponent(JSON.stringify(item)); 
+        window.location.href = `./display/index.html?data=${itemData}`; 
+      });
+
+      button.innerHTML = `
         <div class="tag">
           <div class="name-date">
-            <div class="name">KENLEE NEWS</div>
+            <div class="name">psdevwork</div>
             <div class="date">${item.date}</div>
           </div>
           <hr/>
           <div class="title">${item.title}</div>
         </div>
-      </button>`;
-    grid.appendChild(child);
-  });
+      `;
+
+      child.appendChild(button);
+      grid.appendChild(child);
+    });
 }
 
 export function CreateNews(newsDisplay, news) {
@@ -35,10 +46,13 @@ export function CreateNews(newsDisplay, news) {
         .forEach(([key, item]) => {
           const newsItem = document.createElement("li");
           newsItem.classList.add("news-item");
-          newsItem.addEventListener(
-            "click",
-            () => (window.location.href = item.url)
-          );
+
+          // Set up the click event to redirect and pass item information
+          newsItem.addEventListener("click", () => {
+            const itemData = encodeURIComponent(JSON.stringify(item)); // Convert item to a string
+            window.location.href = `/display/index.html?data=${itemData}`; // Pass data as a query parameter
+          });
+
           newsItem.innerHTML = `
             <div class="date">
               <div class="day-container">
@@ -49,7 +63,7 @@ export function CreateNews(newsDisplay, news) {
               </div>
             </div>
             <div class="title">${item.title}</div>
-            `;
+          `;
           newsDisplay.appendChild(newsItem);
         });
     });
@@ -57,19 +71,25 @@ export function CreateNews(newsDisplay, news) {
 
 export function CreateArts(artsDisplay, arts) {
   Object.entries(arts)
-  .map((entry) => [entry[0].slice(4), entry[1]])
-  .sort((a, b) => a[0] - b[0])
-  .forEach(([key, item]) => {
-    const art = document.createElement("div");
-    art.classList.add("grid-item");
-    art.style.backgroundImage = `url(${item.imageUrl})`;
-    art.addEventListener("click", () => (window.location.href = item.url));
-    art.innerHTML = `
-      <div class="tag">
-        <div class="title">${item.title}</div>
-      </div>`;
-    artsDisplay.appendChild(art);
-  });
+    .map((entry) => [entry[0].slice(4), entry[1]])
+    .sort((a, b) => a[0] - b[0])
+    .forEach(([key, item]) => {
+      const art = document.createElement("div");
+      art.classList.add("grid-item");
+      art.style.backgroundImage = `url(${item.imageUrl})`;
+
+      art.addEventListener("click", () => {
+        const itemData = encodeURIComponent(JSON.stringify(item)); // Convert item to a string
+        window.location.href = `/display/index.html?data=${itemData}`; // Pass data as a query parameter
+      });
+
+      art.innerHTML = `
+        <div class="tag">
+          <div class="title">${item.title}</div>
+        </div>`;
+      
+      artsDisplay.appendChild(art);
+    });
 }
 
 export function CreateBio(bioDisplay, sections) {

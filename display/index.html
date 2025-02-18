@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../global.css" />
+    <script type="module" src="./script.js"></script>
+    <title>Homepage</title>
+    <style>
+        .display {
+            padding: 30px;
+            width: 60%;
+            max-width: 70%;
+            /* background: #fff; Background for content */
+            border-radius: 8px; /* Rounded corners */
+            /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); Shadow for depth */
+            transform: scale(0); /* Start off-screen for pop-up effect */
+            animation: pop-up 0.2s forwards; /* Animation for pop-up */
+        }
+
+        @keyframes pop-up {
+            to {
+                transform: scale(1); /* Scale to normal size */
+            }
+        }
+
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* background-color: #eaeaea; Placeholder color */
+        }
+
+        .image-container img {
+            width: 100%;
+            /* height: 50%; */
+        }
+
+        .content-container {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 24px; /* Title size */
+            margin: 0 0 10px;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="big-screen-nav-bar">
+        <ul class="nav">
+            <li class="nav-item">
+                <a href=".." style="font-weight: bold; font-size: larger !important;" class="title">PSDev</a>
+            </li>
+            <li class="nav-item"><a href="../news">NEWS</a></li>
+            <li class="nav-item"><a href="../arts">ARTS</a></li>
+            <li class="nav-item"><a href="../bio">BIO</a></li>
+        </ul>
+    </nav>
+
+    <nav class="small-screen-nav-bar">
+        <input type="checkbox" id="nav-checkbox" name="nav-checkbox" class="nav-checkbox" />
+        <label class="nav-button" for="nav-checkbox">
+            <img src="https://cdn-icons-png.flaticon.com/512/2976/2976215.png" alt="menu" />
+        </label>
+        <ul class="nav">
+            <li class="nav-item"><br /><br /></li>
+            <li class="nav-item"><a href="">PSDev</a></li>
+            <li class="nav-item"><a href="../news">NEWS</a></li>
+            <li class="nav-item"><a href="../arts">ARTS</a></li>
+            <li class="nav-item"><a href="../bio">BIO</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="display">
+            <div class="content-container" id="contentContainer"></div>
+            <div class="image-container" id="imageContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        // Function to retrieve and display the passed data from the URL
+        function getDataFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            const itemData = params.get('data');
+
+            if (itemData) {
+                const item = JSON.parse(decodeURIComponent(itemData));
+
+                const imageContainer = document.getElementById('imageContainer');
+                const contentContainer = document.getElementById('contentContainer');
+
+                if (item.imageUrl) {
+                    const img = document.createElement('img');
+                    img.src = item.imageUrl;
+                    img.alt = item.title;
+                    imageContainer.appendChild(img);
+                }
+                contentContainer.innerHTML = `
+                    <h1>${item.title}</h1>
+                    <p>${item.date}</p>
+                    <p>${item.description || 'No description available.'}</p>
+                `;
+            } else {
+                contentContainer.innerHTML = '<p>No data found.</p>';
+            }
+        }
+
+        getDataFromUrl();
+    </script>
+</body>
+</html>
