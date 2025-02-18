@@ -81,9 +81,9 @@ export function CreateArts(artsDisplay, arts) {
       art.style.backgroundImage = `url(${item.imageUrl})`;
 
       art.addEventListener("click", () => {
-        localStorage.setItem("data", JSON.stringify(item)); // Chuyển object thành JSON string
+        localStorage.setItem("data", JSON.stringify(item)); 
 
-        window.location.href = `/display/index.html`; // Pass data as a query parameter
+        window.location.href = `/display/index.html`; 
       });
 
       art.innerHTML = `
