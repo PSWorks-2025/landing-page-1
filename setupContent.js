@@ -12,8 +12,9 @@ export function CreateGallery(grid, gallery) {
       button.classList.add('gallery-button'); 
 
       button.addEventListener('click', () => {
-        const itemData = encodeURIComponent(JSON.stringify(item)); 
-        window.location.href = `./display/index.html?data=${itemData}`; 
+        localStorage.setItem("data", JSON.stringify(item)); // Chuyển object thành JSON string
+
+        window.location.href = `./display/index.html`; 
       });
 
       button.innerHTML = `
@@ -49,9 +50,10 @@ export function CreateNews(newsDisplay, news) {
 
           // Set up the click event to redirect and pass item information
           newsItem.addEventListener("click", () => {
-            const itemData = encodeURIComponent(JSON.stringify(item)); // Convert item to a string
-            window.location.href = `/display/index.html?data=${itemData}`; // Pass data as a query parameter
-          });
+            localStorage.setItem("data", JSON.stringify(item)); // Chuyển object thành JSON string
+            window.location.href = `/display/index.html`; 
+        });
+        
 
           newsItem.innerHTML = `
             <div class="date">
@@ -79,8 +81,9 @@ export function CreateArts(artsDisplay, arts) {
       art.style.backgroundImage = `url(${item.imageUrl})`;
 
       art.addEventListener("click", () => {
-        const itemData = encodeURIComponent(JSON.stringify(item)); // Convert item to a string
-        window.location.href = `/display/index.html?data=${itemData}`; // Pass data as a query parameter
+        localStorage.setItem("data", JSON.stringify(item)); // Chuyển object thành JSON string
+
+        window.location.href = `/display/index.html`; // Pass data as a query parameter
       });
 
       art.innerHTML = `

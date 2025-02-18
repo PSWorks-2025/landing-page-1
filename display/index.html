@@ -91,32 +91,33 @@
     <script>
         // Function to retrieve and display the passed data from the URL
         function getDataFromUrl() {
-            const params = new URLSearchParams(window.location.search);
-            const itemData = params.get('data');
+    const itemData = localStorage.getItem("data");
 
-            if (itemData) {
-                const item = JSON.parse(decodeURIComponent(itemData));
+    if (itemData) {
+        const item = JSON.parse(itemData); // Chuyển JSON string về object
 
-                const imageContainer = document.getElementById('imageContainer');
-                const contentContainer = document.getElementById('contentContainer');
+        const imageContainer = document.getElementById('imageContainer');
+        const contentContainer = document.getElementById('contentContainer');
 
-                if (item.imageUrl) {
-                    const img = document.createElement('img');
-                    img.src = item.imageUrl;
-                    img.alt = item.title;
-                    imageContainer.appendChild(img);
-                }
-                contentContainer.innerHTML = `
-                    <h1>${item.title}</h1>
-                    <p>${item.date}</p>
-                    <p>${item.description || 'No description available.'}</p>
-                `;
-            } else {
-                contentContainer.innerHTML = '<p>No data found.</p>';
-            }
+        if (item.imageUrl) {
+            const img = document.createElement('img');
+            img.src = item.imageUrl;
+            img.alt = item.title;
+            imageContainer.appendChild(img);
         }
 
-        getDataFromUrl();
+        contentContainer.innerHTML = `
+            <h1>${item.title}</h1>
+            <p>${item.date}</p>
+            <p>${item.description || 'No description available.'}</p>
+        `;
+    } else {
+        contentContainer.innerHTML = '<p>No data found.</p>';
+    }
+}
+
+getDataFromUrl();
+
     </script>
 </body>
 </html>
